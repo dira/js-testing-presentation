@@ -146,5 +146,6 @@ install node and npm
 
     > npm install -g mocha
     > npm install chai
+    > npm install jquery
     > mocha --compilers coffee:coffee-script
  
