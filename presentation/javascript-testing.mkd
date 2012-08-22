@@ -1,0 +1,45 @@
+# Testing Javascript applications
+
+### Irina Dumitrascu
+
+ruby & cofeescript dev | [dira.ro](http://dira.ro) ,  [@dira_geek_girl](http://twitter.com/dira_geek_girl)
+
+23 August 2012
+
+<div class="notes" markdown="1">
+* coming from the Rails community, where automated testing is a first-class citizen
+* testing JS automatically is slowly taking off
+* want to convince you to test your JS, if you don't do that already
+</div>
+
+===
+
+# Why?
+
+===
+
+# Well…
+
+![](./images/sleep.jpg)
+Image by [kaibara](http://www.flickr.com/photos/kaibara/)
+
+===
+
+# And…
+
+A kitten dies *every time* you hit refresh & click to test
+
+===
+
+# How does it look like?
+
+    expect(deadKittens).toEqual(0)
+    
+    expect($('#welcome').length).toEqual(1)
+
+
+# What do you need?
+
+* separate your JS from the DOM (no inline JS)
+* structure the code (classes, modules)
+* separate the definition and the running step (dom.ready … )
