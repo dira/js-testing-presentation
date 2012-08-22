@@ -6,30 +6,25 @@ ruby & cofeescript dev | [dira.ro](http://dira.ro) ,  [@dira_geek_girl](http://t
 
 23 August 2012
 
-<div class="notes" markdown="1">
+===
 * coming from the Rails community, where automated testing is a first-class citizen
 * testing JS automatically is slowly taking off
 * want to convince you to test your JS, if you don't do that already
-</div>
 
-===
 
 # Why?
 
-===
 
 # Well…
 
 ![](./images/sleep.jpg
-Image by [kaibara](http://www.flickr.com/photos/kaibara/)
 
-===
+Image by [kaibara](http://www.flickr.com/photos/kaibara/)
 
 # And…
 
 A kitten dies *every time* you hit refresh & click to test
 
-===
 
 # How does it look like?
 
@@ -37,15 +32,21 @@ A kitten dies *every time* you hit refresh & click to test
     
     expect($('#welcome').length).toEqual(1)
     
+    expect($('a.more')).toBeVisible()
+    $('a.more').clic()
+    expect($('a.more')).not.toBeVisible()
+    
     TODO 
     describe
 
+
+
 # Running it
 
-<div class="notes">
+===
+
 * browser
 * command line
-</div>
 
 # Kinds of testing
 
@@ -62,12 +63,18 @@ A kitten dies *every time* you hit refresh & click to test
 
 TODO example
 
+
 # Kinds of testing
    
 ## Integration testing
 
 * create scenarios
-* make sure the application works as expected 
+* make sure the application works as expected by the user
+* acceptance testing
+
+* slow
+* does not know about the implementation of individual pieces
+
 
 TODO example
 
@@ -83,13 +90,13 @@ TODO example
     
 1. From all collaborators (true unit tests)
 
-<div class="notes">
+===
+
 no decoupling - need to setup and maintain the global fixtures for the tests; done at the application level with a driver that executes JS as well
 
 decouple from the application - need some integration tests
 
 full decoupling - fastests; but need to test integration between collaborators as well
-</div>
 
 # Process
 
@@ -100,7 +107,7 @@ Write tests first
 * now the test should pass
   * refactor?
   
-<div class='notes'>
+===
 you need some discipline to do this, and when developing apps it's sometimes hard to think about how it should look like and not dive into the browser and refresh after each step.
 
 however, with a bit of discipline (and some mocking on a piece of paper) you can actually think in advance about what you are doing, and what is the result you expect. then simply write the test for the desired result.
@@ -117,7 +124,9 @@ however, with a bit of discipline (and some mocking on a piece of paper) you can
 # Don'ts
 
 * do not test internal methods and state (just the public interface)
+* do not test for the same thing in multiple tests
 * do not test for texts appearing in the DOM (test for classes and ids)
+
 
 # Do's
 
@@ -125,3 +134,17 @@ however, with a bit of discipline (and some mocking on a piece of paper) you can
 * test for classes and ids
 * mock out dependecies (choose the level)
 * maintain the tests as you do with the code
+
+# Added benefits
+
+* better structured code
+* you'll sleep better
+
+# Project details
+
+install node and npm
+
+    > npm install -g mocha
+    > npm install chai
+    > mocha --compilers coffee:coffee-script
+ 
