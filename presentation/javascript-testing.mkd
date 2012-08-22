@@ -20,7 +20,7 @@ ruby & cofeescript dev | [dira.ro](http://dira.ro) ,  [@dira_geek_girl](http://t
 
 # Well…
 
-![](./images/sleep.jpg)
+![](./images/sleep.jpg
 Image by [kaibara](http://www.flickr.com/photos/kaibara/)
 
 ===
@@ -47,17 +47,30 @@ A kitten dies *every time* you hit refresh & click to test
 * command line
 </div>
 
-# What do you need?
+# Kinds of testing
 
-* separate your JS from the DOM (no inline JS)
-* structure the code (classes, modules)
-* separate the definition and the running step (dom.ready … )
-* the smaller the thing to test, the better
+# Kinds of testing
 
-# What do you test?
+## Unit testing
 
-* models & functions
-* views & flow
+* break your code into small pieces
+* best each of them individually
+
+* fast and focused
+* makes sure independent pieces work
+* no guarantee that they work well together
+
+TODO example
+
+# Kinds of testing
+   
+## Integration testing
+
+* create scenarios
+* make sure the application works as expected 
+
+TODO example
+
 
 # Decoupling
 
@@ -92,3 +105,23 @@ you need some discipline to do this, and when developing apps it's sometimes har
 
 however, with a bit of discipline (and some mocking on a piece of paper) you can actually think in advance about what you are doing, and what is the result you expect. then simply write the test for the desired result.
 </div>
+
+# What do you need?
+
+* separate your JS from the DOM (no inline JS)
+* structure the code (classes, modules)
+* separate the definition and the running step (dom.ready … )
+* the smaller the thing to test, the better
+
+
+# Don'ts
+
+* do not test internal methods and state (just the public interface)
+* do not test for texts appearing in the DOM (test for classes and ids)
+
+# Do's
+
+* test the public interface of each object
+* test for classes and ids
+* mock out dependecies (choose the level)
+* maintain the tests as you do with the code
