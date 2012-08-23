@@ -11,8 +11,8 @@ class PresentationView
 
   createNavigation: ->
     @container.append '<nav><a href="#" data-role="previous">Previous</a> | <a href="#" data-role="next">Next</a></nav>'
-    @next().click @advance
-    @previous().click @goBack
+    @next().click => @advance()
+    @previous().click => @goBack()
 
   showSlide: (number) ->
     @currentSlide = number
@@ -30,11 +30,11 @@ class PresentationView
     @container.find('a[data-role="next"]')
 
 
-  advance: =>
+  advance: ->
     if @currentSlide < @sections.length - 1
       @showSlide @currentSlide + 1
 
-  goBack: =>
+  goBack: ->
     if @currentSlide > 0
       @showSlide @currentSlide - 1
 

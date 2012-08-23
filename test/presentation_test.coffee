@@ -127,33 +127,43 @@ describe 'Presentation view', ->
         @shouldShow('next', false)
 
   describe 'navigation', ->
-    it 'advances to the next slide when "next" is clicked', ->
-      @view.showSlide(1)
-      spy = sinon.spy @view, 'showSlide'
+    it 'advances when "next" is clicked', ->
+      spy = sinon.spy @view, 'advance'
       @getNav('next').click()
+      expect(spy.called).to.equal true
 
-      expect(spy.calledWith(2)).to.equal true
+    describe 'advance', ->
+      it 'shows the next slide', ->
+        @view.showSlide(1)
 
-    it 'does not advance if already on the last slide', ->
-      @view.showSlide(2)
-      spy = sinon.spy @view, 'showSlide'
-      @getNav('next').click()
+        spy = sinon.spy @view, 'showSlide'
+        @view.advance()
+        expect(spy.calledWith(2)).to.equal true
 
-      expect(spy.called).to.equal false
+      it 'does not show the next slide if already on the last slide', ->
+        @view.showSlide(2)
+        spy = sinon.spy @view, 'showSlide'
+        @view.advance()
 
-    it 'goes back to the previous slide when "previous" is clicked', ->
-      @view.showSlide(1)
-      spy = sinon.spy @view, 'showSlide'
+        expect(spy.called).to.equal false
+
+    it 'goes back when "previous" is clicked', ->
+      spy = sinon.spy @view, 'goBack'
       @getNav('previous').click()
+      expect(spy.calledOnce).to.equal true
 
-      expect(spy.calledWith(0)).to.equal true
+    describe 'go back', ->
+      it 'shows the previous slide', ->
+        @view.showSlide(1)
 
-    it 'does not go back if on the first slide', ->
-      @view.showSlide(0)
-      spy = sinon.spy @view, 'showSlide'
-      @getNav('previous').click()
+        spy = sinon.spy @view, 'showSlide'
+        @view.goBack()
+        expect(spy.calledWith(0)).to.equal true
 
-      expect(spy.called).to.equal false
+      it 'does not show the previous slide if on the first slide', ->
+        @view.showSlide(0)
+        spy = sinon.spy @view, 'showSlide'
+        @view.goBack()
 
-
+        expect(spy.called).to.equal false
 
