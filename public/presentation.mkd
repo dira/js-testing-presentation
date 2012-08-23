@@ -27,16 +27,21 @@ A kitten dies *every time* you hit refresh & click to test
 
 # How does it look like?
 
-    expect(deadKittens).toEqual(0)
+    it('should show a welcome note', function() {
+      expect($('#welcome').length).toEqual(1)
+    })
 
-    expect($('#welcome').length).toEqual(1)
 
-    expect($('a.more')).toBeVisible()
-    $('a.more').clic()
-    expect($('a.more')).not.toBeVisible()
+    describe('getting more information', function() {
+      it('shows a link for more', function() {
+        expect($('a.more')).toBeVisible()
+      })
 
-    TODO
-    describe
+      it('hides the link for more when clicking on it', function() {
+        $('a.more').click()
+        expect($('a.more').is(':visible')).isTrue
+      })
+    })
 
 
 
