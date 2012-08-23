@@ -19,6 +19,9 @@ $ ->
         when 39
           view.advance()
 
+    $('code').attr('data-language', 'javascript')
+    Rainbow.color()
+
   $.ajax '/presentation.mkd',
     success: success
     error: ->
