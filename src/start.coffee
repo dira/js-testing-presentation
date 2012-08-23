@@ -1,15 +1,25 @@
 $ ->
-  $.ajax '/presentation.mkd',
-    success: (text) ->
-      html = markdown.toHTML(text)
-      presentation = new Presentation
-        html: html
-        jquery: $
+  success = (text) ->
+    presentation = new Presentation
+      html: markdown.toHTML(text)
+      jquery: $
 
-      $('body').html('')
-      view = new PresentationView
-        presentation: presentation
-        container: $('body')
-      view.showSlide(0)
+    $('body').html('')
+
+    view = new PresentationView
+      presentation: presentation
+      container: $('body')
+
+    view.showSlide(0)
+
+    document.onkeydown = (e) ->
+      switch e.which
+        when 37
+          view.goBack()
+        when 39
+          view.advance()
+
+  $.ajax '/presentation.mkd',
+    success: success
     error: ->
       alert 'error ' + arguments
