@@ -86,9 +86,9 @@ describe 'Presentation view', ->
   describe 'show a slide', ->
     it 'makes only that slide visible', ->
       @view.showSlide(0)
-      expect(@container.find('section').eq(0).is(':visible')).to.equal true
-      expect(@container.find('section').eq(1).is(':visible')).to.equal false
-      expect(@container.find('section').eq(2).is(':visible')).to.equal false
+      expect(@container.find('section').eq(0).is(':visible')).to.be.true
+      expect(@container.find('section').eq(1).is(':visible')).to.be.false
+      expect(@container.find('section').eq(2).is(':visible')).to.be.false
 
     xit 'changes the url bar to include the number of the slide', ->
 
@@ -129,7 +129,7 @@ describe 'Presentation view', ->
     it 'advances when "next" is clicked', ->
       spy = sinon.spy @view, 'advance'
       @getNav('next').click()
-      expect(spy.called).to.equal true
+      expect(spy.called).to.be.true
 
     describe 'advance', ->
       it 'shows the next slide', ->
@@ -137,19 +137,19 @@ describe 'Presentation view', ->
 
         spy = sinon.spy @view, 'showSlide'
         @view.advance()
-        expect(spy.calledWith(2)).to.equal true
+        expect(spy.calledWith(2)).to.be.true
 
       it 'does not show the next slide if already on the last slide', ->
         @view.showSlide(2)
         spy = sinon.spy @view, 'showSlide'
         @view.advance()
 
-        expect(spy.called).to.equal false
+        expect(spy.called).to.be.false
 
     it 'goes back when "previous" is clicked', ->
       spy = sinon.spy @view, 'goBack'
       @getNav('previous').click()
-      expect(spy.calledOnce).to.equal true
+      expect(spy.calledOnce).to.be.true
 
     describe 'go back', ->
       it 'shows the previous slide', ->
@@ -157,12 +157,12 @@ describe 'Presentation view', ->
 
         spy = sinon.spy @view, 'showSlide'
         @view.goBack()
-        expect(spy.calledWith(0)).to.equal true
+        expect(spy.calledWith(0)).to.be.true
 
       it 'does not show the previous slide if on the first slide', ->
         @view.showSlide(0)
         spy = sinon.spy @view, 'showSlide'
         @view.goBack()
 
-        expect(spy.called).to.equal false
+        expect(spy.called).to.be.false
 
