@@ -1,18 +1,28 @@
 chai  = require 'chai'
 chai.should()
 sinon = require 'sinon'
-
 $     = require 'jquery'
 
 describe 'Presentation generator', ->
+
+
+
 
   it 'should create a new slide from each <h1> tag until the next <h1> tag, or until the end', ->
     sections = @getSections "<h1>Slide1</h1><p>contents1</p>
                              <h1>Slide2</h1><p>contents2</p>"
 
     sections.size().should.equal 2
+
     sections.first().find('h1').get(0).should.be
+    sections.first().find('p').get(0).should.be
+
     sections.last(). find('h1').get(0).should.be
+    sections.last(). find('p').get(0).should.be
+
+
+
+
 
 
   it 'should create one slide when there is only one <h1> tag', ->
