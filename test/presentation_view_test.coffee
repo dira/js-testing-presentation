@@ -1,24 +1,27 @@
-chai = require 'chai'
+chai  = require 'chai'
 chai.should()
 sinon = require 'sinon'
-
-$ = require 'jquery'
+$     = require 'jquery'
 
 describe 'Presentation view', ->
 
   beforeEach ->
     @PresentationView = (require '../src/presentation_view').PresentationView
-    slides = $('<div>
+    slides = $ '<div>
                    <section>s1</section>
                    <section>s2</section>
                    <section>s3</section>
-                </div>')
+                </div>'
 
-    @container = $('<div/>')
+    @container = $ '<div/>'
+
 
     @view = new @PresentationView
+      # pass a 'fake' container
       container:    @container
+      # and a stubbed presentation object, with the only function that is used
       presentation: { toDOMTree: sinon.stub().returns(slides) }
+
 
 
   describe 'on initialization', ->
@@ -105,13 +108,22 @@ describe 'Presentation view', ->
       @getNav('previous').click()
       spy.calledOnce.should.be.true
 
+
+
+
     describe 'go back', ->
+
+
       it 'shows the previous slide', ->
         @view.showSlide(1)
 
         spy = sinon.spy @view, 'showSlide'
         @view.goBack()
         spy.calledWith(0).should.be.true
+
+
+
+
 
       it 'does not show the previous slide if on the first slide', ->
         @view.showSlide(0)

@@ -3,6 +3,7 @@ chai.should()
 sinon = require 'sinon'
 $     = require 'jquery'
 
+
 describe 'Presentation generator', ->
 
 
@@ -15,10 +16,10 @@ describe 'Presentation generator', ->
     sections.size().should.equal 2
 
     sections.first().find('h1').get(0).should.be
-    sections.first().find('p').get(0).should.be
+    sections.first().find('p') .get(0).should.be
 
     sections.last(). find('h1').get(0).should.be
-    sections.last(). find('p').get(0).should.be
+    sections.last(). find('p') .get(0).should.be
 
 
 
