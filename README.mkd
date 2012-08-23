@@ -1,0 +1,25 @@
+This is a set of Javascript classes that transforms a Markdown presentation into a nice HTML presentation.
+
+You can think of it as [ShowOff](https://github.com/schacon/showoff) without any fluffy feature.
+
+This repository contains my presentation on Javascript Testing at [the second apps.berlin.js meetup](http://berlinjs.org/apps) on August 23rd, 2012.
+
+It is kind of meta, since the app discussed in the presentation is the one that generated the presentation.
+
+# Run the tests
+
+    > # you must have installed node and npm
+    > npm install -g coffee-script
+    > npm install -g mocha
+    > npm install chai
+    > npm install jquery
+    >
+    > # run the tests (it autocompiles coffeescript)
+    > mocha --compilers coffee:coffee-script -R spec
+    >
+    > # generate js files out of the coffeescript ones, for the website
+    > coffee -w -c --output public/js src vendor
+
+# See the presentation
+
+Make the root folder accessible via a local web domain (I use [Pow](pow.cx)). Open it in a browser and use the arrows to navigate.

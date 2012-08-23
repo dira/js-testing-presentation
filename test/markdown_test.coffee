@@ -1,12 +1,12 @@
 chai = require 'chai'
-expect = chai.expect
+chai.should()
 
-describe 'Markdown', ->
+describe 'The markdown processor', ->
 
-  beforeEach ->
-    @markdown = require '../vendor/markdown'
+  it 'should transform markdown into HTML', ->
+    processor = require '../vendor/markdown'
 
-  it 'should work with example input', ->
-    markdown = "# Heading\n\nParagraph"
-    expectedHtml = '<h1>Heading</h1>\n\n<p>Paragraph</p>'
-    expect(@markdown.toHTML(markdown)).to.equal expectedHtml
+    markdown = '# Heading\n\nParagraph'
+    html     = '<h1>Heading</h1>\n\n<p>Paragraph</p>'
+
+    processor.toHTML(markdown).should.equal html

@@ -2,18 +2,17 @@
 
 ### Irina Dumitrascu
 
-ruby & cofeescript dev | [dira.ro](http://dira.ro) ,  [@dira\_geek\_girl](http://twitter.com/dira_geek_girl)
+ruby & cofeescript | [dira.ro](http://dira.ro) ,  [@dira\_geek\_girl](http://twitter.com/dira_geek_girl)
 
 23 August 2012
+
+
+# Why test automatically?
 
 ___
 * coming from the Rails community, where automated testing is a first-class citizen
 * testing JS automatically is slowly taking off
 * want to convince you to test your JS, if you don't do that already
-
-
-# Why?
-
 
 # Well…
 
@@ -22,115 +21,170 @@ ___
 
 # And…
 
-A kitten dies *every time* you hit refresh & click to test
+> Every time you hit refresh & click to test...
+>
+>   God kills a kitten.
+
+---
+because that does not scale
+- not in time
+- and not in the possibility to cover all the tests (possible setups)
+
+no picture for this! :)
+
+# So if no refresh...
+
+---
+show the test runer
+it's a program and it's definitely faster than me!
+
+# Show me the code!
+
+---
+at this point we should dive into seeing some code
+
+# Show me the code!
+
+### no code to show :(
+
+---
+at least, I did not have any nice code to show, yesterday
+
+# Show me the code!
+
+### no code to show :(
+### let's make a new app! :)
+
+
+# Show me the code!
+
+### no code to show :(
+### let's make a new app! :)
+### let's write some code for showing presentations!!
+
+# Show me the code!
+
+### no code to show :(
+### let's make a new app! :)
+### let's write some code for showing presentations!!
+
+> Are you crazy?
+
+# Show me the code!
+
+### no code to show :(
+### let's make a new app! :)
+### let's write some code for showing presentations!!
+
+> Are you crazy?
+
+or
+
+> Do you hate sleeping?
+
+---
+actually, both
+sounded like something cool to hack and nicely testable
+
+# How it works
+
+* the presentation is written in a markdown file
+* the markdown is parsed into HTML
+  * `h1` is the start of a new slide
+  * `hr` is the start of my notes (hidden)
+* and enhanced with `next` and `previous`
+
+# The fascinating part
+
+I wrote all this functionality test-first.
+
+# Which means
+
+1. thinking about what it needs to do
+1. break it in small functions
+
+# Which means
+
+1. thinking about what it needs to do
+1. break it in small functions
+1. choose a function and write a test for it. watch it fail.
+
+# Which means
+
+1. thinking about what it needs to do
+1. break it in small functions
+1. choose a function and write a test for it. watch it fail.
+1. write the code that fixes the test
+
+# Which means
+
+1. think about what it needs to do
+1. break it in small functions
+1. choose a function and write a test for it. watch it fail.
+1. write the code that fixes the test
+  * check for refactoring opportunities
+
+---
+you need some discipline to do this, and when developing apps it's sometimes hard to think about how it should look like and not dive into the browser and refresh after each step.
+
+however, with a bit of discipline (and some mocking on a piece of paper) you can actually think in advance about what you are doing, and what is the result you expect. then simply write the test for the desired result.
+
+# And after everything's ready
+
+Create a HTML page and use all the pieces together.
+
+# And after everything's ready
+
+Which is, the presentation that you see right now.
 
 
 # How does it look like?
 
-    it('should show a welcome note', function() {
-      expect($('#welcome').length).toEqual(1)
-    })
+Let's see a simple test.
 
-
-    describe('getting more information', function() {
-      it('shows a link for more', function() {
-        expect($('a.more')).toBeVisible()
-      })
-
-      it('hides the link for more when clicking on it', function() {
-        $('a.more').click()
-        expect($('a.more').is(':visible')).isTrue
-      })
-    })
-
-
-
-# Running it
-
-___
-
-* browser
-* command line
-
-# Kinds of testing
+---
+* show the markdown test - first run it, then show the code
+  * explain `describe` and `it`
+* show the presentation test - first run it, then show the code
+  * explain that it tests with different conditions
+* show the presentation view test - first run it, then show the code
+  * collaborators are stubbed / mocked
+  * explain beforeEach
+  * explain spies
 
 # Kinds of testing
 
 ## Unit testing
 
-* break your code into small pieces
-* best each of them individually
-
-* fast and focused
-* makes sure independent pieces work
-* no guarantee that they work well together
-
-TODO example
-
-
-# Kinds of testing
+Does this function behave properly?
 
 ## Integration testing
 
-* create scenarios
-* make sure the application works as expected by the user
-* acceptance testing
+Does the application behave properly?
 
-* slow
-* does not know about the implementation of individual pieces
+---
 
+# Unit testing
 
-TODO example
+* break your code into small pieces
+* test each of them individually
 
+# Unit testing
 
-# Decoupling
+* fast and focused
+* makes sure independent pieces work
+* stub!
+  * external dependencies (HTTP requests, HTML code present in the page)
+  * internal dependencies (collaborators)
 
-1. No decoupling = integration tests
+# Unit testing
 
-
-1. From the application (integrated unit tests)
-    * fixtures
-    * spy on HTTP requests
-
-1. From all collaborators (true unit tests)
-
-___
-
-no decoupling - need to setup and maintain the global fixtures for the tests; done at the application level with a driver that executes JS as well
-
-decouple from the application - need some integration tests
-
-full decoupling - fastests; but need to test integration between collaborators as well
-
-# Process
-
-Write tests first
-
-* write a test and watch it fail
-* write the code
-* now the test should pass
-  * refactor?
-
-___
-you need some discipline to do this, and when developing apps it's sometimes hard to think about how it should look like and not dive into the browser and refresh after each step.
-
-however, with a bit of discipline (and some mocking on a piece of paper) you can actually think in advance about what you are doing, and what is the result you expect. then simply write the test for the desired result.
-</div>
-
-# What do you need?
+## What do you need?
 
 * separate your JS from the DOM (no inline JS)
 * structure the code (classes, modules)
 * separate the definition and the running step (dom.ready … )
 * the smaller the thing to test, the better
-
-
-# Don'ts
-
-* do not test internal methods and state (just the public interface)
-* do not test for the same thing in multiple tests
-* do not test for texts appearing in the DOM (test for classes and ids)
-
 
 # Do's
 
@@ -139,19 +193,45 @@ however, with a bit of discipline (and some mocking on a piece of paper) you can
 * mock out dependecies (choose the level)
 * maintain the tests as you do with the code
 
+# Don'ts
+
+* do not test internal methods and state (just the public interface)
+* do not test for the same thing in multiple tests
+* do not test for texts appearing in the DOM (test for classes and ids)
+
+
 # Added benefits
 
 * better structured code
-* you'll sleep better
 
-# Project details
+---
+if I would have started with the refresh approach I might have ended with
+a pile of unstructured JS
 
-install node and npm
+this way, it's separated into different classes with single responsabilities
 
-    > npm install -g mocha
-    > npm install chai
-    > npm install jquery
-    > mocha --compilers coffee:coffee-script
+#
+
+![](/images/sleep.jpg)
+
+# Unit testing
+
+* but... no guarantee that they work well together!
+
+# Integration testing
+
+* create scenarios
+* make sure the application works as expected by the user
+* also called acceptance testing
+
+* slow
+* does not know about the implementation of individual pieces
+* you need to setup the whole application to a known state
+
+
+---
+TODO examples
+
 
 
 # Credits
@@ -164,3 +244,11 @@ Images
 CSS
 
 * [markdown css](http://kevinburke.bitbucket.org/markdowncss/)
+
+# TODO
+
+decide on expect() or .should
+learn how to make the font bigger in VIM and in terminal
+also need contrast
+what if no net? no pow?
+separate with white spaces code that I want to show
