@@ -1,6 +1,5 @@
 chai = require 'chai'
 expect = chai.expect
-# chai.should()
 
 sinon = require 'sinon'
 $ = require 'jquery'

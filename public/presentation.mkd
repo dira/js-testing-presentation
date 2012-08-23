@@ -153,7 +153,9 @@ install node and npm
 
 
 Images
+
 * [http://www.flickr.com/photos/kaibara/4068996309/](http://www.flickr.com/photos/kaibara/4068996309/)
 
 CSS
+
 * [markdown css](http://kevinburke.bitbucket.org/markdowncss/)
