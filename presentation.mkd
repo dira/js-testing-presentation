@@ -16,7 +16,7 @@ ___
 
 # Well…
 
-![](/images/sleep.jpg)
+![](images/sleep.jpg)
 
 
 # And…
@@ -212,7 +212,7 @@ this way, it's separated into different classes with single responsabilities
 
 #
 
-![](/images/sleep.jpg)
+![](images/sleep.jpg)
 
 # Unit testing
 
