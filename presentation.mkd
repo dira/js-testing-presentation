@@ -1,0 +1,254 @@
+# Testing Javascript applications
+
+### Irina Dumitrascu
+
+ruby & cofeescript | [dira.ro](http://dira.ro) ,  [@dira\_geek\_girl](http://twitter.com/dira_geek_girl)
+
+23 August 2012
+
+
+# Why test automatically?
+
+___
+* coming from the Rails community, where automated testing is a first-class citizen
+* testing JS automatically is slowly taking off
+* want to convince you to test your JS, if you don't do that already
+
+# Well…
+
+![](/images/sleep.jpg)
+
+
+# And…
+
+> Every time you hit refresh & click to test...
+>
+>   God kills a kitten.
+
+---
+because that does not scale
+- not in time
+- and not in the possibility to cover all the tests (possible setups)
+
+no picture for this! :)
+
+# So if no refresh...
+
+---
+show the test runer
+it's a program and it's definitely faster than me!
+
+# Show me the code!
+
+---
+at this point we should dive into seeing some code
+
+# Show me the code!
+
+### no code to show :(
+
+---
+at least, I did not have any nice code to show, yesterday
+
+# Show me the code!
+
+### no code to show :(
+### let's make a new app! :)
+
+
+# Show me the code!
+
+### no code to show :(
+### let's make a new app! :)
+### let's write some code for showing presentations!!
+
+# Show me the code!
+
+### no code to show :(
+### let's make a new app! :)
+### let's write some code for showing presentations!!
+
+> Are you crazy?
+
+# Show me the code!
+
+### no code to show :(
+### let's make a new app! :)
+### let's write some code for showing presentations!!
+
+> Are you crazy?
+
+or
+
+> Do you hate sleeping?
+
+---
+actually, both
+sounded like something cool to hack and nicely testable
+
+# How it works
+
+* the presentation is written in a markdown file
+* the markdown is parsed into HTML
+  * `h1` is the start of a new slide
+  * `hr` is the start of my notes (hidden)
+* and enhanced with `next` and `previous`
+
+# The fascinating part
+
+I wrote all this functionality test-first.
+
+# Which means
+
+1. thinking about what it needs to do
+1. break it in small functions
+
+# Which means
+
+1. thinking about what it needs to do
+1. break it in small functions
+1. choose a function and write a test for it. watch it fail.
+
+# Which means
+
+1. thinking about what it needs to do
+1. break it in small functions
+1. choose a function and write a test for it. watch it fail.
+1. write the code that fixes the test
+
+# Which means
+
+1. think about what it needs to do
+1. break it in small functions
+1. choose a function and write a test for it. watch it fail.
+1. write the code that fixes the test
+  * check for refactoring opportunities
+
+---
+you need some discipline to do this, and when developing apps it's sometimes hard to think about how it should look like and not dive into the browser and refresh after each step.
+
+however, with a bit of discipline (and some mocking on a piece of paper) you can actually think in advance about what you are doing, and what is the result you expect. then simply write the test for the desired result.
+
+# And after everything's ready
+
+Create a HTML page and use all the pieces together.
+
+# And after everything's ready
+
+Which is, the presentation that you see right now.
+
+
+# How does it look like?
+
+Let's see a simple test.
+
+---
+* show the markdown test - first run it, then show the code
+  * explain `describe` and `it`
+* show the presentation test - first run it, then show the code
+  * explain that it tests with different conditions
+* show the presentation view test - first run it, then show the code
+  * collaborators are stubbed / mocked
+  * explain beforeEach
+  * explain spies
+
+# Kinds of testing
+
+## Unit testing
+
+Does this function behave properly?
+
+## Integration testing
+
+Does the application behave properly?
+
+---
+
+# Unit testing
+
+* break your code into small pieces
+* test each of them individually
+
+# Unit testing
+
+* fast and focused
+* makes sure independent pieces work
+* stub!
+  * external dependencies (HTTP requests, HTML code present in the page)
+  * internal dependencies (collaborators)
+
+# Unit testing
+
+## What do you need?
+
+* separate your JS from the DOM (no inline JS)
+* structure the code (classes, modules)
+* separate the definition and the running step (dom.ready … )
+* the smaller the thing to test, the better
+
+# Do's
+
+* test the public interface of each object
+* test for classes and ids
+* mock out dependecies (choose the level)
+* maintain the tests as you do with the code
+
+# Don'ts
+
+* do not test internal methods and state (just the public interface)
+* do not test for the same thing in multiple tests
+* do not test for texts appearing in the DOM (test for classes and ids)
+
+
+# Added benefits
+
+* better structured code
+
+---
+if I would have started with the refresh approach I might have ended with
+a pile of unstructured JS
+
+this way, it's separated into different classes with single responsabilities
+
+#
+
+![](/images/sleep.jpg)
+
+# Unit testing
+
+* but... no guarantee that they work well together!
+
+# Integration testing
+
+* create scenarios
+* make sure the application works as expected by the user
+* also called acceptance testing
+
+* slow
+* does not know about the implementation of individual pieces
+* you need to setup the whole application to a known state
+
+
+---
+TODO examples
+
+
+
+# Credits
+
+
+Images
+
+* [http://www.flickr.com/photos/kaibara/4068996309/](http://www.flickr.com/photos/kaibara/4068996309/)
+
+CSS
+
+* [markdown css](http://kevinburke.bitbucket.org/markdowncss/)
+
+# TODO
+
+decide on expect() or .should
+learn how to make the font bigger in VIM and in terminal
+also need contrast
+what if no net? no pow?
+separate with white spaces code that I want to show

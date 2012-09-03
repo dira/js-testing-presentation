@@ -1,0 +1,49 @@
+/* HTML5 block elements */
+article, aside, figure, footer, header, hgroup, menu, nav, section {
+  display:block;
+}
+
+/* hide notes */
+.notes {
+  display: none;
+}
+
+/* using keyboard navigation, so hide the links */
+nav {
+  display: none;
+}
+
+body, pre, pre code, li {
+  font-size: 18px;
+  line-height: 2;
+}
+pre, pre code {
+  line-height: 1.2;
+}
+h1 {
+  font-size: 56px;
+}
+p, li {
+  font-size: 24px;
+}
+blockquote {
+  max-width: 720px;
+}
+
+section p {
+  max-width: 816px;
+}
+
+section:first-child h1 {
+  margin: 56px 0;
+  text-align: center;
+  font-size: 64px;
+}
+section:first-child h3 {
+  max-width: 816px;
+  text-align: right;
+  font-size: 48px;
+}
+section:first-child p {
+  text-align: right;
+}
