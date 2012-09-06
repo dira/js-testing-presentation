@@ -7,13 +7,13 @@ describe 'Presentation view', ->
 
   beforeEach ->
     @PresentationView = (require '../src/presentation_view').PresentationView
-    slides = $ '<div>
+    slides = $('<div>
                    <section>s1</section>
                    <section>s2</section>
                    <section>s3</section>
-                </div>'
+                </div>')
 
-    @container = $ '<div/>'
+    @container = $('<div/>')
 
 
     @view = new @PresentationView

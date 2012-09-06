@@ -16,7 +16,7 @@ nav {
 body {
   padding-top: 128px;
 }
-body, pre, pre code, li {
+body, li, code, pre, pre code {
   font-size: 18px;
   line-height: 2;
 }

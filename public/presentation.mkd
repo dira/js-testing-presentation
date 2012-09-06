@@ -7,7 +7,7 @@ ruby & cofeescript | [dira.ro](http://dira.ro) ,  [@dira\_geek\_girl](http://twi
 23 August 2012
 
 
-# Why test automatically?
+# Why?
 
 ___
 * coming from the Rails community, where automated testing is a first-class citizen
@@ -18,12 +18,22 @@ ___
 
 ![](/images/sleep.jpg)
 
+# And…
+
+> Every time you hit refresh & click to test…
 
 # And…
 
 > Every time you hit refresh & click to test…
 >
->   God kills a kitten.
+>   **God kills a kitten**.
+
+# And…
+
+> Every time you hit refresh & click to test…
+>
+>   **God kills a kitten**.  (image not available)
+
 
 ___
 because that does not scale
@@ -32,8 +42,11 @@ because that does not scale
 
 no picture for this! :)
 
-# So if no refresh…
+# Without refresh...
 
+# Without refresh...
+
+We're at the mercy of the machines.
 ___
 show the test runer
 it's a program and it's definitely faster than me!
@@ -92,8 +105,8 @@ never do this for a presentation!
 
 # How it works
 
-* the presentation is written in a markdown file
-* the markdown is parsed into HTML
+* the presentation is written in a Markdown file
+* the Markdown is parsed into HTML
   * `h1` is the start of a new slide
   * `hr` is the start of my notes (hidden)
 * and enhanced with `next` and `previous`
@@ -116,25 +129,58 @@ Without seeing it in the browser until it was done.
 
 And it worked.
 
-# Which means
+# The fascinating part
+
+I wrote all this functionality test-first.
+
+Without seeing it in the browser until it was done.
+
+And it worked.
+
+(Because it was tested.)
+
+# The fascinating part
+
+The result is the presentation that you see right now.
+
+# So let's talk about testing
+
+# Kinds of testing
+
+## Unit testing
+
+* Does this **function** behave properly?
+
+## Integration testing
+
+* Does the **application** behave properly?
+
+
+# Unit testing
+
+* tests independent functions
+* fast and focused
+* makes sure independent pieces work
+
+# How to do it
 
 1. think about what you must implement
 1. break it in small functions
 
-# Which means
+# How to do it
 
 1. think about what you must implement
 1. break it in small functions
 1. choose a function and write a test for it. watch it fail.
 
-# Which means
+# How to do it
 
 1. think about what you must implement
 1. break it in small functions
 1. choose a function and write a test for it. watch it fail.
 1. write the code that fixes the test
 
-# Which means
+# How to do it
 
 1. think about what you must implement
 1. break it in small functions
@@ -147,15 +193,6 @@ you need some discipline to do this, and when developing apps it's sometimes har
 
 however, with a bit of discipline (and some mocking on a piece of paper) you can actually think in advance about what you are doing, and what is the result you expect. then simply write the test for the desired result.
 
-# And after everything's ready
-
-Create a HTML page and use all the pieces together.
-
-# And after everything's ready
-
-Create a HTML page and use all the pieces together.
-
-That is the presentation that you see right now.
 
 
 # How does it look like?
@@ -167,35 +204,7 @@ ___
   * explain `describe` and `it`
 * show the presentation test - first run it, then show the code
   * explain that it tests with different conditions
-* show the presentation view test - first run it, then show the code
-  * collaborators are stubbed / mocked
-  * explain beforeEach
-  * **explain spies**
 
-# Kinds of testing
-
-## Unit testing
-
-* Does this **function** behave properly?
-
-## Integration testing
-
-* Does the **application** behave properly?
-
-___
-
-# Unit testing
-
-* break your code into small pieces
-* test each of them individually
-
-# Unit testing
-
-* fast and focused
-* makes sure independent pieces work
-* stub!
-  * external dependencies (HTTP requests, HTML code present in the page)
-  * internal dependencies (collaborators)
 
 # Unit testing
 
@@ -205,6 +214,24 @@ You need to:
 * structure the code (classes, modules)
 * separate the definition and the running step (document.ready … )
 * the smaller the thing to test, the better
+
+# Unit testing - don'ts
+
+* do not test for the same thing in multiple tests
+* do not test for texts appearing in the DOM (test for classes and ids)
+
+# Unit testing - do's
+
+* test the public interface of each object
+* test for classes and ids (not strings) in the UI
+* mock out dependecies (HTTP requests & HTML in the page, but also collaborators)
+* maintain the tests as you do with the code
+
+___
+* show the presentation view test - first run it, then show the code
+  * collaborators are stubbed / mocked
+  * explain beforeEach
+  * **explain spies**
 
 # Many tools
 
@@ -219,20 +246,6 @@ You need to:
 ## Tools
 
 to run the tests from the command line, to integrate with CI
-
-# Unit testing - do's
-
-* test the public interface of each object
-* test for classes and ids (not strings) in the UI
-* mock out dependecies (HTTP requests & HTML in the page, but also collaborators)
-* maintain the tests as you do with the code
-
-# Unit testing - don'ts
-
-* do not test internal methods and state (just the public interface)
-* do not test for the same thing in multiple tests
-* do not test for texts appearing in the DOM (test for classes and ids)
-
 
 # Added benefits
 
@@ -250,6 +263,7 @@ this way, it's separated into different classes with single responsabilities
 
 # But…
 
+* the individual pieces work
 * there's no guarantee that they work well together!
 
 # Integration testing
@@ -277,6 +291,17 @@ the screen
 * slow
 * do not know about the implementation of individual pieces
 
+# Conclusion
+
+* test your code!
+* unit tests and integration tests complement each other
+
+# Conclusion
+
+* test your code!
+* unit tests and integration tests complement each other
+* **think of the kittens!**
+
 # Starring
 
 Tests
@@ -291,6 +316,12 @@ Code
 * [Rainbow](http://craig.is/making/rainbows) as *Code stylist*
 * [markdown css](http://kevinburke.bitbucket.org/markdowncss/) as *Text stylist*
 
-Presentations
+Presentation
 
 * [http://www.flickr.com/photos/kaibara/4068996309/](http://www.flickr.com/photos/kaibara/4068996309/) as *Test Ninja Cat*
+
+#
+
+## Thank you!
+
+## Questions?

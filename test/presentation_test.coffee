@@ -1,10 +1,9 @@
 chai  = require 'chai'
 chai.should()
-sinon = require 'sinon'
 $     = require 'jquery'
 
 
-describe 'Presentation generator', ->
+describe 'The presentation', ->
 
 
 
