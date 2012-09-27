@@ -22,7 +22,7 @@ $ ->
     $('code').attr('data-language', 'javascript')
     Rainbow.color()
 
-  $.ajax '/presentation.mkd',
+  $.ajax './presentation.mkd',
     success: success
     error: ->
       alert 'error ' + arguments

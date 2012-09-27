@@ -16,7 +16,7 @@ ___
 
 # Well…
 
-![](/images/sleep.jpg)
+![](./images/sleep.jpg)
 
 # And…
 
@@ -259,7 +259,7 @@ this way, it's separated into different classes with single responsabilities
 
 # And…
 
-![](/images/sleep.jpg)
+![](./images/sleep.jpg)
 
 # But…
 
