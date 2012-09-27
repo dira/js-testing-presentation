@@ -7,7 +7,7 @@ ruby & cofeescript | [dira.ro](http://dira.ro) ,  [@dira\_geek\_girl](http://twi
 23 August 2012
 
 
-# Why test automatically?
+# Why?
 
 ___
 * coming from the Rails community, where automated testing is a first-class citizen
@@ -16,38 +16,51 @@ ___
 
 # Well…
 
-![](images/sleep.jpg)
-
+![](/images/sleep.jpg)
 
 # And…
 
-> Every time you hit refresh & click to test...
->
->   God kills a kitten.
+> Every time you hit refresh & click to test…
 
----
+# And…
+
+> Every time you hit refresh & click to test…
+>
+>   **God kills a kitten**.
+
+# And…
+
+> Every time you hit refresh & click to test…
+>
+>   **God kills a kitten**.  (image not available)
+
+
+___
 because that does not scale
 - not in time
 - and not in the possibility to cover all the tests (possible setups)
 
 no picture for this! :)
 
-# So if no refresh...
+# Without refresh...
 
----
+# Without refresh...
+
+We're at the mercy of the machines.
+___
 show the test runer
 it's a program and it's definitely faster than me!
 
 # Show me the code!
 
----
+___
 at this point we should dive into seeing some code
 
 # Show me the code!
 
 ### no code to show :(
 
----
+___
 at least, I did not have any nice code to show, yesterday
 
 # Show me the code!
@@ -60,12 +73,14 @@ at least, I did not have any nice code to show, yesterday
 
 ### no code to show :(
 ### let's make a new app! :)
+### what will I write the presentation in?
 ### let's write some code for showing presentations!!
 
 # Show me the code!
 
 ### no code to show :(
 ### let's make a new app! :)
+### what will I write the presentation in?
 ### let's write some code for showing presentations!!
 
 > Are you crazy?
@@ -74,6 +89,7 @@ at least, I did not have any nice code to show, yesterday
 
 ### no code to show :(
 ### let's make a new app! :)
+### what will I write the presentation in?
 ### let's write some code for showing presentations!!
 
 > Are you crazy?
@@ -82,14 +98,15 @@ or
 
 > Do you hate sleeping?
 
----
+___
 actually, both
 sounded like something cool to hack and nicely testable
+never do this for a presentation!
 
 # How it works
 
-* the presentation is written in a markdown file
-* the markdown is parsed into HTML
+* the presentation is written in a Markdown file
+* the Markdown is parsed into HTML
   * `h1` is the start of a new slide
   * `hr` is the start of my notes (hidden)
 * and enhanced with `next` and `previous`
@@ -98,157 +115,213 @@ sounded like something cool to hack and nicely testable
 
 I wrote all this functionality test-first.
 
-# Which means
+# The fascinating part
 
-1. thinking about what it needs to do
+I wrote all this functionality test-first.
+
+Without seeing it in the browser until it was done.
+
+# The fascinating part
+
+I wrote all this functionality test-first.
+
+Without seeing it in the browser until it was done.
+
+And it worked.
+
+# The fascinating part
+
+I wrote all this functionality test-first.
+
+Without seeing it in the browser until it was done.
+
+And it worked.
+
+(Because it was tested.)
+
+# The fascinating part
+
+The result is the presentation that you see right now.
+
+# So let's talk about testing
+
+# Kinds of testing
+
+## Unit testing
+
+* Does this **function** behave properly?
+
+## Integration testing
+
+* Does the **application** behave properly?
+
+
+# Unit testing
+
+* tests independent functions
+* fast and focused
+* makes sure independent pieces work
+
+# How to do it
+
+1. think about what you must implement
 1. break it in small functions
 
-# Which means
+# How to do it
 
-1. thinking about what it needs to do
+1. think about what you must implement
 1. break it in small functions
 1. choose a function and write a test for it. watch it fail.
 
-# Which means
+# How to do it
 
-1. thinking about what it needs to do
+1. think about what you must implement
 1. break it in small functions
 1. choose a function and write a test for it. watch it fail.
 1. write the code that fixes the test
 
-# Which means
+# How to do it
 
-1. think about what it needs to do
+1. think about what you must implement
 1. break it in small functions
 1. choose a function and write a test for it. watch it fail.
 1. write the code that fixes the test
   * check for refactoring opportunities
 
----
+___
 you need some discipline to do this, and when developing apps it's sometimes hard to think about how it should look like and not dive into the browser and refresh after each step.
 
 however, with a bit of discipline (and some mocking on a piece of paper) you can actually think in advance about what you are doing, and what is the result you expect. then simply write the test for the desired result.
 
-# And after everything's ready
-
-Create a HTML page and use all the pieces together.
-
-# And after everything's ready
-
-Which is, the presentation that you see right now.
 
 
 # How does it look like?
 
 Let's see a simple test.
 
----
+___
 * show the markdown test - first run it, then show the code
   * explain `describe` and `it`
 * show the presentation test - first run it, then show the code
   * explain that it tests with different conditions
-* show the presentation view test - first run it, then show the code
-  * collaborators are stubbed / mocked
-  * explain beforeEach
-  * explain spies
 
-# Kinds of testing
-
-## Unit testing
-
-Does this function behave properly?
-
-## Integration testing
-
-Does the application behave properly?
-
----
 
 # Unit testing
 
-* break your code into small pieces
-* test each of them individually
-
-# Unit testing
-
-* fast and focused
-* makes sure independent pieces work
-* stub!
-  * external dependencies (HTTP requests, HTML code present in the page)
-  * internal dependencies (collaborators)
-
-# Unit testing
-
-## What do you need?
+You need to:
 
 * separate your JS from the DOM (no inline JS)
 * structure the code (classes, modules)
-* separate the definition and the running step (dom.ready … )
+* separate the definition and the running step (document.ready … )
 * the smaller the thing to test, the better
 
-# Do's
+# Unit testing - don'ts
 
-* test the public interface of each object
-* test for classes and ids
-* mock out dependecies (choose the level)
-* maintain the tests as you do with the code
-
-# Don'ts
-
-* do not test internal methods and state (just the public interface)
 * do not test for the same thing in multiple tests
 * do not test for texts appearing in the DOM (test for classes and ids)
 
+# Unit testing - do's
+
+* test the public interface of each object
+* test for classes and ids (not strings) in the UI
+* mock out dependecies (HTTP requests & HTML in the page, but also collaborators)
+* maintain the tests as you do with the code
+
+___
+* show the presentation view test - first run it, then show the code
+  * collaborators are stubbed / mocked
+  * explain beforeEach
+  * **explain spies**
+
+# Many tools
+
+## Frameworks
+
+[jasmine](http://pivotal.github.com/jasmine/), [mocha](http://visionmedia.github.com/mocha/), [buster.js](http://busterjs.org/)
+
+## Separate assertion libraries
+
+[chai](http://chaijs.com/)
+
+## Tools
+
+to run the tests from the command line, to integrate with CI
 
 # Added benefits
 
 * better structured code
 
----
+___
 if I would have started with the refresh approach I might have ended with
 a pile of unstructured JS
 
 this way, it's separated into different classes with single responsabilities
 
-#
+# And…
 
-![](images/sleep.jpg)
+![](/images/sleep.jpg)
 
-# Unit testing
+# But…
 
-* but... no guarantee that they work well together!
+* the individual pieces work
+* there's no guarantee that they work well together!
 
 # Integration testing
 
-* create scenarios
-* make sure the application works as expected by the user
-* also called acceptance testing
+* is the application as a whole working as expected?
+  * also called acceptance testing
 
-* slow
-* does not know about the implementation of individual pieces
-* you need to setup the whole application to a known state
+# Integration testing
 
+* create scenarios and test that they work
+* have to setup the whole application stack to a known state
 
 ---
-TODO examples
+example:
+when the presentation website is used, and a certain markdown
+file is passed to it, it should show only the first slide when
+opened. then if pressing the right key arrow it should show
+the second slide
 
+nothing about how it accomplishes this, only checks what is on
+the screen
 
+# Integration testing
 
-# Credits
+* slow
+* do not know about the implementation of individual pieces
 
+# Conclusion
 
-Images
+* test your code!
+* unit tests and integration tests complement each other
 
-* [http://www.flickr.com/photos/kaibara/4068996309/](http://www.flickr.com/photos/kaibara/4068996309/)
+# Conclusion
 
-CSS
+* test your code!
+* unit tests and integration tests complement each other
+* **think of the kittens!**
 
-* [markdown css](http://kevinburke.bitbucket.org/markdowncss/)
+# Starring
 
-# TODO
+Tests
 
-decide on expect() or .should
-learn how to make the font bigger in VIM and in terminal
-also need contrast
-what if no net? no pow?
-separate with white spaces code that I want to show
+* [mocha](http://visionmedia.github.com/mocha/) as *Test framework*
+* [chai](http://chaijs.com/) as *Assertive guy*
+* [sinon](http://sinonjs.org/) as *Mocking and spying specialist*
+
+Code
+
+* [jQuery](http://jquery.com/)
+* [Rainbow](http://craig.is/making/rainbows) as *Code stylist*
+* [markdown css](http://kevinburke.bitbucket.org/markdowncss/) as *Text stylist*
+
+Presentation
+
+* [http://www.flickr.com/photos/kaibara/4068996309/](http://www.flickr.com/photos/kaibara/4068996309/) as *Test Ninja Cat*
+
+#
+
+## Thank you!
+
+## Questions?
