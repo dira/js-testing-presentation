@@ -13,7 +13,10 @@ nav {
   display: none;
 }
 
-body, pre, pre code, li {
+body {
+  padding-top: 128px;
+}
+body, li, code, pre, pre code {
   font-size: 18px;
   line-height: 2;
 }
@@ -30,7 +33,7 @@ blockquote {
   max-width: 720px;
 }
 
-section p {
+section p, section ul, section ol {
   max-width: 816px;
 }
 

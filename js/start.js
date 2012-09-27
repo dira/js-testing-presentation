@@ -26,7 +26,7 @@
       $('code').attr('data-language', 'javascript');
       return Rainbow.color();
     };
-    return $.ajax('presentation.mkd', {
+    return $.ajax('./presentation.mkd', {
       success: success,
       error: function() {
         return alert('error ' + arguments);
