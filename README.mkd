@@ -17,9 +17,19 @@ It is kind of meta, since the app discussed in the presentation is the one that 
     > # run the tests (it autocompiles coffeescript)
     > mocha --compilers coffee:coffee-script -R spec
     >
-    > # generate js files out of the coffeescript ones, for the website
-    > coffee -w -c --output public/js src vendor
 
 # See the presentation
 
-Make the root folder accessible via a local web domain (I use [Pow](pow.cx)). Open it in a browser and use the arrows to navigate.
+On your machine:
+
+* clone the repository
+* compile the coffeescript files to js
+
+    > coffee -w -c --output public/js src vendor
+* Make the root folder accessible via a local web domain (I use [Pow](pow.cx)). Open it in a browser and use the arrows to navigate.
+
+Online: [http://dira.github.com/js-testing-presentation/](http://dira.github.com/js-testing-presentation/).
+
+# Other stuff
+
+[GistDeck](https://gistdeck.herokuapp.com/) turns markdown gists into wonderful presentations (pretty much what this project does, but more convenient. Github does the markdown to html conversion, GistDeck adds the JS to make that look nice and be interactive).
