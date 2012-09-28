@@ -320,6 +320,10 @@ Presentation
 
 * [http://www.flickr.com/photos/kaibara/4068996309/](http://www.flickr.com/photos/kaibara/4068996309/) as *Test Ninja Cat*
 
+# Check out the code
+
+[https://github.com/dira/js-testing-presentation](https://github.com/dira/js-testing-presentation)
+
 #
 
 ## Thank you!
