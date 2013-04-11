@@ -20,6 +20,10 @@ It is kind of meta, since the app discussed in the presentation is the one that 
 
 # See the presentation
 
+[Get the PDF](https://raw.github.com/dira/js-testing-presentation/master/public/js_testing.pdf)
+
+Online: [http://dira.github.com/js-testing-presentation/](http://dira.github.com/js-testing-presentation/).
+
 On your machine:
 
 * clone the repository
@@ -28,7 +32,6 @@ On your machine:
     > coffee -w -c --output public/js src vendor
 * Make the root folder accessible via a local web domain (I use [Pow](pow.cx)). Open it in a browser and use the arrows to navigate.
 
-Online: [http://dira.github.com/js-testing-presentation/](http://dira.github.com/js-testing-presentation/).
 
 # Other stuff
 
