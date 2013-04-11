@@ -1,1 +1,0 @@
-../public/javascript-testing.mkd
