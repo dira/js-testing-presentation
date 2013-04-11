@@ -16,8 +16,8 @@ class PresentationView
 
   showSlide: (number) ->
     @currentSlide = number
-    @sections.hide()
-    @sections.eq(number).show()
+    @sections.addClass('hidden')
+    @sections.eq(number).removeClass('hidden')
 
     if number == 0 then @previous().hide() else @previous().show()
     if number == @sections.length - 1 then @next().hide() else @next().show()

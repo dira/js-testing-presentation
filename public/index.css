@@ -50,3 +50,23 @@ section:first-child h3 {
 section:first-child p {
   text-align: right;
 }
+
+
+@media screen {
+  .hidden {
+    display: none;
+  }
+}
+@media print {
+  section {page-break-after: always;}
+  .notes {
+    margin-top: 20px;
+    color: #666;
+    font-size: 0.8em;
+    border-top: 1px solid #666;
+    display: none;
+  }
+  img {
+    max-height: 65%;
+  }
+}
